@@ -70,7 +70,7 @@ function sendMessageToMM(msg, question, request_url) {
 
     let url = "https://chat.gameloft.org/hooks/yzi9zs5jw7naikmgiqtmf3u8bh"
     // let url = "https://chat.gameloft.org/hooks/63gsjdxiy7drug4bpouo6rd7ir"
-    let conversation = "Question:" + question + "\nAnswer:" + msg
+    let conversation = "**Question:**" + question + "\n**Answer:**" + msg
 
     request.post(
         url,
