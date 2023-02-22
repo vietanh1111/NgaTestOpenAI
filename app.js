@@ -2,6 +2,8 @@ const fs = require("fs");
 const request = require('request')
 const openai = require("openai");
 const express = require('express');
+const queryString = require('querystring');
+
 var app = express();
 
 
@@ -80,12 +82,15 @@ function sendMessageToMM(msg, request_url) {
 }
 
 
-function chatBot(jsonData) {
+function chatBot(data) {
     console.log("chatBot")
-    if (jsonData.text.startsWith("OpenAI Chat:")) {
-        let question = jsonData.text.replace('OpenAI Chat:', '');
-        requestGetOpenAIMsgForChatBot(question)
-    }
+    let params = queryString.parse(data);
+    let question = params.text;
+    console.log("question=" + question)
+    // if (jsonData.text.startsWith("")) {
+        // let question = jsonData.text.replace('', '');
+    requestGetOpenAIMsgForChatBot(question)
+    // }
 }
 
 app.post('/doChatOpenAI', function (req, res) {
