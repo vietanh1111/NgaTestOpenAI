@@ -70,7 +70,7 @@ function sendMessageToMM(msg, question, request_url) {
     console.log("sendMessageToMM")
     let url = "https://chat.gameloft.org/hooks/yzi9zs5jw7naikmgiqtmf3u8bh"
     // let url = "https://chat.gameloft.org/hooks/63gsjdxiy7drug4bpouo6rd7ir"
-    let messageMM = "**Question:**" + question + "\n**Answer:**" + msg
+    let messageMM = "**Human:**" + question + "\n**AI:**" + msg
     console.log("messageMM=" + messageMM)
     request.post(
         url,
