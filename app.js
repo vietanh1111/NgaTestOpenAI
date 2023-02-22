@@ -67,7 +67,9 @@ async function requestGetOpenAIMsgForChatBot(question, mmUrl) {
 }
 
 function sendMessageToMM(msg, request_url) {
-    let url = "https://chat.gameloft.org/hooks/yzi9zs5jw7naikmgiqtmf3u8bh"
+    
+    // let url = "https://chat.gameloft.org/hooks/yzi9zs5jw7naikmgiqtmf3u8bh"
+    let url = "https://chat.gameloft.org/hooks/63gsjdxiy7drug4bpouo6rd7ir"
     request.post(
         url,
         { json: { "text": msg } },
