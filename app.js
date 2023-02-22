@@ -32,10 +32,10 @@ app.use(function (req, res, next) {
 
 
 let conversation = "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly."
-async function requestGetOpenAIMsgForChatBot(question, mmUrl) {
+async function requestGetOpenAIMsgForChatBot(raw_question, mmUrl) {
     console.log("requestGetOpenAIMsgForChatBot ")
 
-    question = "\nHuman:" + question + "\nAI:"
+    question = "\nHuman:" + raw_question + "\nAI:"
     conversation = conversation + question
 
     console.log("conversation=" + conversation)
@@ -59,7 +59,7 @@ async function requestGetOpenAIMsgForChatBot(question, mmUrl) {
         conversation = conversation + res
 
         console.log("conversation=" + conversation)
-        sendMessageToMM(res, question, mmUrl)
+        sendMessageToMM(res, raw_question, mmUrl)
     } catch (error) {
         console.log("get error")
         console.log(error)
