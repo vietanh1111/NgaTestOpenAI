@@ -67,14 +67,14 @@ async function requestGetOpenAIMsgForChatBot(question, mmUrl) {
 }
 
 function sendMessageToMM(msg, question, request_url) {
-
+    console.log("sendMessageToMM")
     let url = "https://chat.gameloft.org/hooks/yzi9zs5jw7naikmgiqtmf3u8bh"
     // let url = "https://chat.gameloft.org/hooks/63gsjdxiy7drug4bpouo6rd7ir"
-    let conversation = "**Question:**" + question + "\n**Answer:**" + msg
-
+    let messageMM = "**Question:**" + question + "\n**Answer:**" + msg
+    console.log("messageMM=" + messageMM)
     request.post(
         url,
-        { json: { "text": conversation } },
+        { json: { "text": messageMM } },
         function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 console.log(body)
