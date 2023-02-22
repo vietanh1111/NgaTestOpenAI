@@ -82,10 +82,9 @@ function sendMessageToMM(msg, request_url) {
 }
 
 
-function chatBot(data) {
+function chatBot(question) {
     console.log("chatBot")
-    let params = queryString.parse(data);
-    let question = params.text;
+
     console.log("question=" + question)
     // if (jsonData.text.startsWith("")) {
         // let question = jsonData.text.replace('', '');
@@ -99,13 +98,16 @@ app.post('/doChatOpenAI', function (req, res) {
             data = data.toString()
             console.log("doTask for the data")
             console.log(data)
-            jsonData = JSON.parse(data)
-            let result = "result done"
-            if (jsonData["text"]) {
-                if (jsonData["text"].startsWith("OpenAI Chat:")) {
-                    chatBot(jsonData)
-                }
-            }
+
+            let params = queryString.parse(data);
+            let question = params.text;            
+            // jsonData = JSON.parse(data)
+            // let result = "result done"
+            // if (jsonData["text"]) {
+            //     if (jsonData["text"].startsWith("OpenAI Chat:")) {
+                    chatBot(question)
+                // }
+            // }
             res.end(result)
         })
     }
