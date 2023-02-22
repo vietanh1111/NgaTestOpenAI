@@ -94,7 +94,7 @@ function chatBot(question) {
     // }
 }
 
-app.post('/doChatOpenAI', function (req, res) {
+app.post('/doChatOpenAI_slash', function (req, res) {
     if (req.method == 'POST') {
         req.on('data', async function (data) {
             data = data.toString()
@@ -109,6 +109,22 @@ app.post('/doChatOpenAI', function (req, res) {
     }
 })
 
+app.post('/doChatOpenAI_ow', function (req, res) {
+    if (req.method == 'POST') {
+        req.on('data', async function (data) {
+            data = data.toString()
+            console.log("doChatOpenAI for the data")
+            console.log(data)
+            jsonData = JSON.parse(data)
+            if (jsonData.text.startsWith("OpenAI Chat:")) {
+                let question = jsonData.text.replace('OpenAI Chat:', '');
+                chatBot(question)
+            }          
+            
+            res.end("doChatOpenAI done")
+        })
+    }
+})
 
 
 app.post('/resetConversation', function (req, res) {
