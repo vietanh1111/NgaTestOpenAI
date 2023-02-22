@@ -67,7 +67,7 @@ async function requestGetOpenAIMsgForChatBot(question, mmUrl) {
 }
 
 function sendMessageToMM(msg, request_url) {
-    
+
     // let url = "https://chat.gameloft.org/hooks/yzi9zs5jw7naikmgiqtmf3u8bh"
     let url = "https://chat.gameloft.org/hooks/63gsjdxiy7drug4bpouo6rd7ir"
     request.post(
@@ -98,22 +98,33 @@ app.post('/doChatOpenAI', function (req, res) {
     if (req.method == 'POST') {
         req.on('data', async function (data) {
             data = data.toString()
-            console.log("doTask for the data")
+            console.log("doChatOpenAI for the data")
             console.log(data)
 
             let params = queryString.parse(data);
             let question = params.text;            
-            // jsonData = JSON.parse(data)
-            // let result = "result done"
-            // if (jsonData["text"]) {
-            //     if (jsonData["text"].startsWith("OpenAI Chat:")) {
-                    chatBot(question)
-                // }
-            // }
-            res.end(result)
+            chatBot(question)
+            res.end("doChatOpenAI done")
         })
     }
 })
+
+
+
+app.post('/resetConversation', function (req, res) {
+    if (req.method == 'POST') {
+        req.on('data', async function (data) {
+            data = data.toString()
+            console.log("resetConversation for the data")
+            conversation = "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly."    
+
+
+            res.end("resetConversation done")
+        })
+    }
+})
+
+
 
 var server = app.listen(port, function () {
     var host = server.address().address
