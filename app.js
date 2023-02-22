@@ -88,10 +88,7 @@ function chatBot(question) {
     console.log("chatBot")
 
     console.log("question=" + question)
-    // if (jsonData.text.startsWith("")) {
-        // let question = jsonData.text.replace('', '');
     requestGetOpenAIMsgForChatBot(question)
-    // }
 }
 
 app.post('/doChatOpenAI_slash', function (req, res) {
