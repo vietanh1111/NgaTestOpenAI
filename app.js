@@ -102,8 +102,9 @@ app.post('/doChatOpenAI_slash', function (req, res) {
 
             let params = queryString.parse(data);
             let question = params.text;
-            chatBot(question)
-            res.end("doChatOpenAI done")
+            let response = await requestGetOpenAIMsgForChatBot(question)
+            console.log("DONE")
+            res.end(response)
         })
     }
 })
