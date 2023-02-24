@@ -8,7 +8,7 @@ data = {}
 # data["text"] = 'OpenAI Chat: bạn sai ở đây này 144 - 4y + 2y = 100, tại sao y lại bằng 11'
 # data["text"] = 'OpenAI Chat: tôi tính ra y = 22'
 # data["text"] = 'OpenAI Chat: bạn mới sai tính lại đi, 144 - 4y + 2y = 144 - 2y => y = 22'
-data["text"] = 'OpenAI Chat: hello'
+data["text"] = 'OpenAI Chat: youre trained to kiss ass man'
 data["user_name"] = "anh.nguyenviet6"
 myobj = data
 

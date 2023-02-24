@@ -69,7 +69,9 @@ async function requestGetOpenAIMsgForChatBot(input_question) {
         } catch (error) {
             console.log("requestGetOpenAIMsgForChatBot get error")
             console.log(error)
-            return error
+            let messageMM = "**Tớ: **" + input_question + "\n**Bạn AI: **" + "Sorry, request Failed"
+            res = await sendMessageToMM(messageMM)            
+            return res
         }
     } else {
         conversation = "The following is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly."
